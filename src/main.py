@@ -1,4 +1,4 @@
-from validation import validate_input
+from info_check import validate_input
 
 
 class VirtualMachine:     # Creating a blueprint that contains criterions for the user's input. 
@@ -25,18 +25,20 @@ class VirtualMachine:     # Creating a blueprint that contains criterions for th
 
     def from_user_input(cls):
        while True:
-        
-        name = input("Enter machine name: ")
-        vm_os = input("Enter OS: ")
-        cpu = int(input("Enter number of CPU cores: "))
-        ram = int(input("Enter RAM size (GB): "))
-        disk_size = int(input("Enter Disk size (GB): "))
+        try:
+            name = input("Enter machine name: ")
+            vm_os = input("Enter OS: ")
+            cpu = int(input("Enter number of CPU cores: "))
+            ram = int(input("Enter RAM size (GB): "))
+            disk_size = int(input("Enter Disk size (GB): "))
+
+            if validate_input((name, vm_os, cpu, ram, disk_size)):
+             break
+            else:
+             print("Something went wrong..")
+        except ValueError:
+          print("ValueError: Invalid input. Please recheck and enter valid values.")
        
-        if validate_input((name, vm_os, cpu, ram, disk_size)):
-          break
-        else:
-           print("Error: Invalid input. Please enter valid values.")
-      
        return cls(name, vm_os, cpu, ram, disk_size) 
      
  
