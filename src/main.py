@@ -10,8 +10,12 @@ class VirtualMachine:     # Creating a blueprint that contains criterions for th
         self.disk_size = disk_size
        
 
-    def show_details(self): # A fuction that prints the input in human readable format.
-        return f"VM: {self.name}, OS: {self.vm_os}, CPU: {self.cpu} cores, RAM: {self.ram}GB, Disk size: {self.disk_size}GB."
+    def show_details(self): # A fuction that prints the input in human readable format.    
+        return (f"Machine Name: {self.name}\n"
+                f"Operating System: {self.vm_os}\n"
+                f"CPU Cores: {self.cpu}\n"
+                f"RAM: {self.ram} GB\n"
+                f"Disk Size: {self.disk_size} GB")
    
 
    
@@ -24,24 +28,23 @@ class VirtualMachine:     # Creating a blueprint that contains criterions for th
 
 
     def from_user_input(cls):
-       while True:
-        try:
-            name = input("Enter machine name: ")
-            vm_os = input("Enter OS: ")
-            cpu = int(input("Enter number of CPU cores: "))
-            ram = int(input("Enter RAM size (GB): "))
-            disk_size = int(input("Enter Disk size (GB): "))
-
-            if validate_input((name, vm_os, cpu, ram, disk_size)):
-             break
-            else:
-             print("Something went wrong..")
-        except ValueError:
-          print("ValueError: Invalid input. Please recheck and enter valid values.")
-       
-       return cls(name, vm_os, cpu, ram, disk_size) 
-     
- 
+        while True:
+            try:
+                name = input("Enter machine name: ")
+                vm_os = input("Enter OS: ")
+                cpu = input("Enter number of CPU cores: ")
+                ram = input("Enter RAM size (GB): ")
+                disk_size = input("Enter Disk size (GB): ")
+            
+                validated_data = validate_input((name, vm_os, cpu, ram, disk_size))
+                if validated_data:
+                   break
+                else:
+                    print("Invalid input. Please ensure all fields are correctly filled.")
+            except ValueError():
+              print("Invalid input. Please ensure all fields are correctly filled.")                                                                    
+              continue
+        return cls(name, vm_os, cpu, ram, disk_size)
  # 'cls()' returns a new instance of the class with the provided data.
  # For example: Instead of manually creating an instance using VM self.(name, cpu, ram, disk, os),
  # you can call VM 'from_user_input(cls)', and it will achieve the same result.
