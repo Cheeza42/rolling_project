@@ -16,24 +16,24 @@ def validate_input(data):
     try:
         name, vm_os, cpu, ram, disk_size = data
 
-        # 🖥️ Ensure all inputs are treated as strings
+        #  Ensure all inputs are treated as strings
         name, vm_os, cpu, ram, disk_size = map(str, [name, vm_os, cpu, ram, disk_size])
 
-        # 🖥️ Validate that machine name and OS name are not only numbers
+        #  Validate that machine name and OS name are not only numbers
         if re.fullmatch(r"\d+", name.strip()) or re.fullmatch(r"\d+", vm_os.strip()):
             return False
 
-        # 🔢 Convert CPU, RAM, and Disk Size to integers before validation
+        # Convert CPU, RAM, and Disk Size to integers before validation
         try:
             cpu, ram, disk_size = int(cpu), int(ram), int(disk_size)
         except ValueError:
             return False
 
-        # 🔢 Ensure CPU, RAM, and Disk Size are positive integers
+        # Ensure CPU, RAM, and Disk Size are positive integers
         if cpu <= 0 or ram <= 0 or disk_size <= 0:
             return False
 
-        return name, vm_os, cpu, ram, disk_size  # מחזיר את הנתונים התקינים
+        return name, vm_os, cpu, ram, disk_size   
 
     except ValueError:
         print("Invalid input. Please ensure all fields are correctly filled.")
