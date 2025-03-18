@@ -21,20 +21,19 @@ def validate_input(data):
 
         #  Validate that machine name and OS name are not only numbers
         if re.fullmatch(r"\d+", name.strip()) or re.fullmatch(r"\d+", vm_os.strip()):
-            return False
+            raise ValueError("Invalid input. Please ensure all fields are correctly filled.")
 
-        # Convert CPU, RAM, and Disk Size to integers before validation
-        try:
-            cpu, ram, disk_size = int(cpu), int(ram), int(disk_size)
-        except ValueError:
-            return False
+        #  Convert CPU, RAM, and Disk Size to integers before validation
 
+        cpu, ram, disk_size = int(cpu), int(ram), int(disk_size)
+            
+        
         # Ensure CPU, RAM, and Disk Size are positive integers
         if cpu <= 0 or ram <= 0 or disk_size <= 0:
-            return False
+            raise ValueError("Invalid input. Please ensure all fields are correctly filled.")
 
-        return name, vm_os, cpu, ram, disk_size   
-
+        return name, vm_os, cpu, ram, disk_size  # Returns the valid values
+    
     except ValueError:
         print("Invalid input. Please ensure all fields are correctly filled.")
         return False

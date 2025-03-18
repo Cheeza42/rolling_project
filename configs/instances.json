@@ -1,0 +1,16 @@
+[
+    {
+        "name": "alon",
+        "vm_os": "alba",
+        "cpu": "1234",
+        "ram": "1234",
+        "disk_size": "1234"
+    },
+    {
+        "name": "choko",
+        "vm_os": "moko",
+        "cpu": "1234",
+        "ram": "2345",
+        "disk_size": "3456"
+    }
+]
