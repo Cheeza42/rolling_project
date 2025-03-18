@@ -5,15 +5,7 @@ def save_instance(instance_data):
     #Saves a new virtual machine instance to instances.json.
     file_path = "configs/instances.json"
   
-    absolute_path = os.path.abspath(file_path)
-    print(f" Saving data to: {absolute_path}")
-
-    
-    if os.path.exists(file_path):
-        print(f" File already exists at: {absolute_path}")
-    else:
-        print(f" File does not exist yet. It will be created at: {absolute_path}")
-
+ 
     # Ensure the directory exists
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
