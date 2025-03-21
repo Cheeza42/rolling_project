@@ -1,16 +1,30 @@
 [
     {
-        "name": "alon",
-        "vm_os": "alba",
-        "cpu": "1234",
-        "ram": "1234",
-        "disk_size": "1234"
+        "name": "coko",
+        "vm_os": "noko",
+        "cpu": 23,
+        "ram": 54,
+        "disk_size": 88
     },
     {
-        "name": "choko",
-        "vm_os": "moko",
-        "cpu": "1234",
-        "ram": "2345",
-        "disk_size": "3456"
+        "name": "alla",
+        "vm_os": "balla",
+        "cpu": 12,
+        "ram": 34,
+        "disk_size": 566
+    },
+    {
+        "name": "nina",
+        "vm_os": "banina",
+        "cpu": 22,
+        "ram": 33,
+        "disk_size": 4444
+    },
+    {
+        "name": "last",
+        "vm_os": "check",
+        "cpu": 1234,
+        "ram": 444,
+        "disk_size": 33
     }
 ]
