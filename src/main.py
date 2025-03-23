@@ -1,6 +1,9 @@
+
 import os
 import json
 from pydantic import BaseModel, Field
+
+
 
 # VirtualMachine model defines the structure and validation rules for VM configuration
 class VirtualMachine(BaseModel):
