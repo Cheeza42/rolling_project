@@ -60,11 +60,15 @@ def get_user_input():
 
 def save_vms_to_json(vm_list):
     # Use an absolute path for the file inside the 'configs' folder
-    file_path = os.path.join(os.getcwd(), 'configs', 'instances.json')
-
+  
+    file_path = os.path.join(os.path.dirname(__file__), '..', 'configs', 'instances.json')
+    file_path = os.path.abspath(file_path)  
     # Debugging: print a massege for showing the saving process 
     print(f"\nSaving VMs...")
     
+    # Ensure the configs directory exists
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
     # Check if the file already exists and read the existing content (to avoid overwriting)
     if os.path.exists(file_path):
         with open(file_path, 'r') as f:

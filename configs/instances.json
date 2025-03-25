@@ -26,5 +26,12 @@
         "cpu": 1234,
         "ram": 444,
         "disk_size": 33
+    },
+    {
+        "name": "tiki",
+        "vm_os": "taka",
+        "cpu": 234,
+        "ram": 65,
+        "disk_size": 44
     }
 ]
