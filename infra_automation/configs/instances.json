@@ -33,5 +33,12 @@
         "cpu": 234,
         "ram": 65,
         "disk_size": 44
+    },
+    {
+        "name": "chelle",
+        "vm_os": "belle",
+        "cpu": 3453,
+        "ram": 222,
+        "disk_size": 666
     }
 ]

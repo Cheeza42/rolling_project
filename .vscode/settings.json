@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./infra_automation",
+        "./infra_automation/src"
+    ]
+}
