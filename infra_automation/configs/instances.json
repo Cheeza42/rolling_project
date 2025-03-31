@@ -40,5 +40,12 @@
         "cpu": 3453,
         "ram": 222,
         "disk_size": 666
+    },
+    {
+        "name": "test1",
+        "vm_os": "ttds",
+        "cpu": 1235,
+        "ram": 555,
+        "disk_size": 444
     }
 ]

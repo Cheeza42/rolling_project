@@ -51,7 +51,7 @@ def get_user_input():
 
         except Exception as e:
             # Display an error message in case of invalid details.
-            print(f"\nError: {str(e)}")  # Use str(e) to get the error message from the exception
+            print("\nError: Invalid input. Please ensure all details are entered correctly")  # Use a general error massege only after the input process is completed incase of invalid data.
             error_count += 1
             if error_count >= 3:
                 print("\nToo many invalid attempts. Exiting program..")
@@ -59,11 +59,12 @@ def get_user_input():
     return None
 
 def save_vms_to_json(vm_list):
+    
     # Use an absolute path for the file inside the 'configs' folder
-  
     file_path = os.path.join(os.path.dirname(__file__), '..', 'configs', 'instances.json')
     file_path = os.path.abspath(file_path)  
-    # Debugging: print a massege for showing the saving process 
+    
+    # Prints a massege for showing the saving process 
     print(f"\nSaving VMs...")
     
     # Ensure the configs directory exists
@@ -80,13 +81,13 @@ def save_vms_to_json(vm_list):
     new_vms_data = [vm.to_dict() for vm in vm_list]  # Use the custom .to_dict() function
     existing_data.extend(new_vms_data)
 
-    # Debugging: print the data we're about to save
+    # Prints a format of the data we're about to save
     print(f"\nData being saved: {json.dumps(existing_data, indent=4)}")
 
     # Write the updated data to the JSON file
     with open(file_path, 'w') as f:
         json.dump(existing_data, f, indent=4)
-        print(f"\nVMs successfully saved!")  # Debugging: confirm saving
+        print(f"\nVMs successfully saved!")  # Debugging: confirm saving process.
 
 # Condition that adds the valid VMs to a list (in case the user added multiple machines)
 if __name__ == "__main__":

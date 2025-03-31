@@ -1,31 +1,40 @@
 #!/bin/bash
 
-# Exit immediately if a command exits with a non-zero status
-set -e
-
 # Function to log informational messages
 log() {
-    echo "[INFO] $1"
+  echo "[INFO] $1"
 }
 
-# Function to print error message and exit with failure
+# Function to print error message and exit
 error_exit() {
-    echo "[ERROR] $1" >&2
-    exit 1
+  echo "[ERROR] $1" >&2
+  exit 1
 }
 
-# Check if nginx is already installed using dpkg (Debian-based systems)
-if dpkg -s nginx >/dev/null 2>&1; then
-    log "Nginx is already installed."
-else
-    log "Nginx is not installed. Installing..."
+# The path to find the vm's jsons in the structure.
+CONFIG_FILE="../configs/instances.json"
 
-    # Update the package list
-    sudo apt-get update || error_exit "Failed to update package list."
+[ ! -f "$CONFIG_FILE" ] && error_exit "Configuration file not found at $CONFIG_FILE"
 
-    # Install nginx, fail with error message if it doesn't succeed
-    sudo apt-get install -y nginx || error_exit "Failed to install nginx."
+# Using grep to find the names of the vms for the logging printing.
+VM_LIST=$(grep -o '"name": *"[^"]*"' "$CONFIG_FILE" | cut -d '"' -f4)
 
-    log "Nginx installation completed successfully."
-fi
+[ -z "$VM_LIST" ] && error_exit "No VM instances found in $CONFIG_FILE"
+
+log "Starting Nginx installation simulation on all VMs..."
+
+# For every vm the user added we will install 'nginx'
+for vm in $VM_LIST; do
+  log "Starting simulation on $vm..."
+
+  echo "Simulating: Updating package list on $vm..."
+  sleep 1
+  echo "Simulating: Installing Nginx on $vm..."
+  sleep 1
+  log "Nginx installation simulation completed successfully on $vm."
+
+  echo "-------------------------------------------"
+done
+
+log "Provisioning process finished for all VMs."
 
