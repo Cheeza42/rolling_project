@@ -1,6 +1,7 @@
 
 import os
 import json
+import time
 from pydantic import BaseModel, Field
 
 
@@ -67,6 +68,8 @@ def save_vms_to_json(vm_list):
     # Prints a massege for showing the saving process 
     print(f"\nSaving VMs...")
     
+    time.sleep(5)
+
     # Ensure the configs directory exists
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
@@ -80,9 +83,13 @@ def save_vms_to_json(vm_list):
     # Convert VM objects to dictionaries and append them to the existing data
     new_vms_data = [vm.to_dict() for vm in vm_list]  # Use the custom .to_dict() function
     existing_data.extend(new_vms_data)
+    
+    time.sleep(5)
 
     # Prints a format of the data we're about to save
     print(f"\nData being saved: {json.dumps(existing_data, indent=4)}")
+    
+    time.sleep(5)
 
     # Write the updated data to the JSON file
     with open(file_path, 'w') as f:
@@ -90,7 +97,8 @@ def save_vms_to_json(vm_list):
         print(f"\nVMs successfully saved!")  # Debugging: confirm saving process.
 
 # Condition that adds the valid VMs to a list (in case the user added multiple machines)
-if __name__ == "__main__":
+
+def collect_vms():
     vm_list = []
 
     while True:
@@ -103,15 +111,21 @@ if __name__ == "__main__":
         if add_another != "yes":
             break
 
+    return vm_list
+
+
     # Display the list of valid machines after input is finished
+if __name__ == "__main__":
+    vm_list = collect_vms()
+
+    time.sleep(3)
+    
     if vm_list:
         print("\nList of all configured VMs:")
         for i, vm in enumerate(vm_list, start=1):
             print(f"\n--- VM {i} ---")
             print(vm.show_details())
 
-        # Ensure that we save the VMs after displaying them
         save_vms_to_json(vm_list)
-
-    elif not vm_list:
+    else:
         print("\nNo valid VMs were added.")

@@ -2,6 +2,7 @@ import sys
 import os
 import logging
 from machine import get_user_input, save_vms_to_json
+import time
 
 # Making sure that the machine recognize the functions from the 'src' file that stored in ifra_automation.
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'infra_automation', 'src'))) 
@@ -40,6 +41,7 @@ def setup_provisioning_logger():
 def create_vm():
     logger = setup_provisioning_logger()
     logger.info("Provisioning started") 
+    time.sleep(2)
     print("Starting create_vm()...")
 
     try:

@@ -47,5 +47,12 @@
         "cpu": 1235,
         "ram": 555,
         "disk_size": 444
+    },
+    {
+        "name": "alon",
+        "vm_os": "albalak",
+        "cpu": 123,
+        "ram": 222,
+        "disk_size": 333
     }
 ]
