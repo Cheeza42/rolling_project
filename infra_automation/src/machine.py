@@ -87,7 +87,7 @@ def save_vms_to_json(vm_list):
     time.sleep(5)
 
     # Prints a format of the data we're about to save
-    print(f"\nData being saved: {json.dumps(existing_data, indent=4)}")
+    print(f"\nData being saved: {json.dumps(new_vms_data, indent=4)}")
     
     time.sleep(5)
 
@@ -114,18 +114,5 @@ def collect_vms():
     return vm_list
 
 
-    # Display the list of valid machines after input is finished
-if __name__ == "__main__":
-    vm_list = collect_vms()
+   
 
-    time.sleep(3)
-    
-    if vm_list:
-        print("\nList of all configured VMs:")
-        for i, vm in enumerate(vm_list, start=1):
-            print(f"\n--- VM {i} ---")
-            print(vm.show_details())
-
-        save_vms_to_json(vm_list)
-    else:
-        print("\nNo valid VMs were added.")

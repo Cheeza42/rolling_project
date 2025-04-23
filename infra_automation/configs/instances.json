@@ -54,5 +54,89 @@
         "cpu": 123,
         "ram": 222,
         "disk_size": 333
+    },
+    {
+        "name": "alon",
+        "vm_os": "albalak",
+        "cpu": 12423,
+        "ram": 223321,
+        "disk_size": 1232
+    },
+    {
+        "name": "aloni",
+        "vm_os": "baloni",
+        "cpu": 2321,
+        "ram": 4321,
+        "disk_size": 12345
+    },
+    {
+        "name": "nana",
+        "vm_os": "banana",
+        "cpu": 432,
+        "ram": 667,
+        "disk_size": 3577
+    },
+    {
+        "name": "aaa",
+        "vm_os": "ios",
+        "cpu": 243,
+        "ram": 556,
+        "disk_size": 7643
+    },
+    {
+        "name": "zazi",
+        "vm_os": "bazazi",
+        "cpu": 1243,
+        "ram": 5567,
+        "disk_size": 4335
+    },
+    {
+        "name": "kos",
+        "vm_os": "emek",
+        "cpu": 3432,
+        "ram": 2345,
+        "disk_size": 5665
+    },
+    {
+        "name": "nnn",
+        "vm_os": "ggg",
+        "cpu": 43543,
+        "ram": 664,
+        "disk_size": 3467
+    },
+    {
+        "name": "hitler",
+        "vm_os": "asshole",
+        "cpu": 2342,
+        "ram": 5678,
+        "disk_size": 4467
+    },
+    {
+        "name": "hhh",
+        "vm_os": "kkk",
+        "cpu": 5432,
+        "ram": 7655,
+        "disk_size": 89900
+    },
+    {
+        "name": "king",
+        "vm_os": "ori",
+        "cpu": 876,
+        "ram": 467,
+        "disk_size": 432
+    },
+    {
+        "name": "nig",
+        "vm_os": "ga",
+        "cpu": 4245,
+        "ram": 6786,
+        "disk_size": 5432
+    },
+    {
+        "name": "kksk",
+        "vm_os": "dfgee",
+        "cpu": 4566,
+        "ram": 3211,
+        "disk_size": 4567
     }
 ]
