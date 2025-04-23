@@ -1,3 +1,4 @@
+import subprocess
 import sys
 import os
 import logging
@@ -60,7 +61,20 @@ def create_vm():
 
                 # Log each machine creation details
                 logger.info(f"Machine created: {vm.name}, OS: {vm.vm_os}, CPU: {vm.cpu}, RAM: {vm.ram}GB, Disk: {vm.disk_size}GB")
-
+            # Run the bash script to install Nginx for each VM
+                try:
+    # Running the bash script directly without any extra prints from Python
+                 result = subprocess.run(
+        ["bash", os.path.join(os.path.dirname(__file__), '..', 'scripts', 'install_nginx.sh')], 
+        check=True, capture_output=True, text=True, shell=True
+    )
+              # Print the output from the bash script
+                 print(result.stdout)  # Print stdout (the normal output)
+                 if result.stderr:
+                        print(f"Error: {result.stderr}")  # Print stderr (if there was an error)
+                except subprocess.CalledProcessError as e:
+                 print(f"Error installing Nginx on {vm.name}: {e}")
+            
             save_vms_to_json(vm_list)  # Save the list of VMs to a JSON file
             time.sleep(3)  
             logger.info("Provisioning completed for all VMs.")  # Log that provisioning has been completed

@@ -138,5 +138,54 @@
         "cpu": 4566,
         "ram": 3211,
         "disk_size": 4567
+    },
+    {
+        "name": "chiki",
+        "vm_os": "miki",
+        "cpu": 4214,
+        "ram": 6543,
+        "disk_size": 23456
+    },
+    {
+        "name": "tiki",
+        "vm_os": "toko",
+        "cpu": 34543,
+        "ram": 224,
+        "disk_size": 5654
+    },
+    {
+        "name": "bbb",
+        "vm_os": "ddd",
+        "cpu": 1234,
+        "ram": 5543,
+        "disk_size": 3332
+    },
+    {
+        "name": "fff",
+        "vm_os": "hhh",
+        "cpu": 444,
+        "ram": 66,
+        "disk_size": 78
+    },
+    {
+        "name": "lll",
+        "vm_os": "aaa",
+        "cpu": 34,
+        "ram": 22,
+        "disk_size": 66
+    },
+    {
+        "name": "rtty",
+        "vm_os": "gds",
+        "cpu": 555,
+        "ram": 444,
+        "disk_size": 33
+    },
+    {
+        "name": "sss",
+        "vm_os": "ggg",
+        "cpu": 43,
+        "ram": 22,
+        "disk_size": 44
     }
 ]
